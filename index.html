@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Hello</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<img src="image/hungary-flag.gif" id="flag-image" />
+		<div id="bear-image-wrapper" class="fade grow">
+			<img src="image/bear.gif" />
+			<h1>Welcome</h1>
+		</div>
+		<script type="text/javascript">
+		var $flagImage = document.getElementById('flag-image'),
+			$bearImage = document.getElementById('bear-image-wrapper');
+			
+		$flagImage.addEventListener('mouseover', function () {
+			$bearImage.className = 'show grow';
+		});
+		$flagImage.addEventListener('mouseout', function () {
+			$bearImage.className = 'grow';
+		});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+body {
+	font-family: "Comic Sans MS";
+	margin: 0;
+	padding: 0;
+	color: black;
+}
+h1 {
+	margin-top: 10px;
+}
+
+#flag-image {
+	position: fixed;
+	bottom: 15px;
+	width: 100px;
+}
+#flag-image:hover {
+	cursor: pointer;
+}
+
+#bear-image-wrapper {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+#bear-image-wrapper img {
+	width: 100%;
+}
+.grow {
+	height: 0px;
+	width: 0px;
+	opacity: 0;
+	-webkit-transition-property: height, width, opacity;
+	-webkit-transition-duration: 0.7s;
+}
+.grow.show {
+	width: 500px;
+	height: 500px;
+	opacity: 1;
+	-webkit-transition-property: height, width, opacity;
+	-webkit-transition-duration: 0.7s;
+}
+.grow h1 {
+	font-size: 0px;
+	color: red;
+	-webkit-transition-property: font-size, color;
+	-webkit-transition-duration: 0.5s;
+}
+.grow.show h1 {
+	font-size: 30px;
+	color: green;
+	-webkit-transition-property: font-size, color;
+	-webkit-transition-duration: 5s;
+}
