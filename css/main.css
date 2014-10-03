@@ -1,55 +1,25 @@
 body {
-	font-family: "Comic Sans MS";
 	margin: 0;
 	padding: 0;
-	color: black;
-}
-h1 {
-	margin-top: 10px;
+	color: white;
+	background-image: url(../image/static.gif);
 }
 
-#flag-image {
-	position: fixed;
-	bottom: 15px;
-	width: 100px;
-}
-#flag-image:hover {
-	cursor: pointer;
-}
-
-#bear-image-wrapper {
+.splash {
+	width: 550px;
+	height: 150px;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
 }
-#bear-image-wrapper img {
-	width: 100%;
+.splash .tilde-ring {
+	-webkit-transition: 0.5s ease-in;
+	-moz-transition: 0.5s ease-in;
+	transition: 0.5s ease-in;
+	transform-origin: center center;
 }
-.grow {
-	height: 0px;
-	width: 0px;
-	opacity: 0;
-	-webkit-transition-property: height, width, opacity;
-	-webkit-transition-duration: 0.7s;
-}
-.grow.show {
-	width: 500px;
-	height: 500px;
-	opacity: 1;
-	-webkit-transition-property: height, width, opacity;
-	-webkit-transition-duration: 0.7s;
-}
-.grow h1 {
-	font-size: 0px;
-	color: red;
-	-webkit-transition-property: font-size, color;
-	-webkit-transition-duration: 0.5s;
-}
-.grow.show h1 {
-	font-size: 30px;
-	color: green;
-	-webkit-transition-property: font-size, color;
-	-webkit-transition-duration: 5s;
+.splash:hover .tilde-ring {
+	transform: rotate(380deg) scale(1.7, 2.5);
 }
