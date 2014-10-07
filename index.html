@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,36 +7,49 @@
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="css/main.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="javascript/reversegif.js"></script>
 	</head>
 	<body>
-		<h1>~serif <a href="https://twitter.com/_serif">#</a></h1>
-		<center>
-			<applet code="java/TildeApplet.class" width="320" height="120">2014©</applet>
-		</center>
-		<div class="splash">
-			<div class="tilde-ring">
-				<!-- Begin Tilde.Club Ring Fragment-->
-				<center>
-				<font size="2">
-				</font></p><center><font size="2">
-				<center>
-				<br><img src="http://tilde.club/~harper/webring.png"  border="0" usemap="#notepad.map"><br>
-				</center>
-				<br>
-				Click for the [
-				<a href="http://tilde.club/~harper/link.html?action=random" target="_top">Random page</a> ]
-				<br>
-				Want to join the ring? Click here for
-				<a href="http://tilde.club/~harper/link.html?action=info" target="_top">info</a>.
-				<br></font></center>
-				<map name="notepad.map">
-				<area shape="rect" coords="0, 0, 60, 70" target="_top" href="http://tilde.club/~harper/link.html?action=join">
-				<area shape="rect" coords="130, 0, 417, 75" target="_top" href="http://tilde.club/~harper/link.html?action=random">
-				<area shape="rect" coords="465, 0, 549, 75" target="_top" href="http://tilde.club/~harper/link.html?action=join">
-				</map>
-				</center>
-				<!-- End Webring Fragment-->
-			</div>
+		<div id="content">
+			<h1 id="headline"></h1>
+			<p id="text"></p>
+			<span id="tag"></span>
 		</div>
+		<div id="controls">
+			refreshes every 30 seconds. | 
+			<a href="#" id="reload-button">next!</a> | 
+			<a href="#" id="what-is-this">wait, what is this?</a>
+		</div>
+		<div id="explanation">
+			<p>Reaction gifs are all teh rage nowadays. How about finding stories related to images instead?</p>
+			<p>On this page you'll see a random image coming from <a href="http://giphy.com/">Giphy</a>, with a related story headline and excerpt from <a href="http://kinja.com">Kinja</a>.</p>
+			<p><a href="#" id="now-i-know">Ah okay, thanks! Now close this window.</a></p>
+			<a href="https://twitter.com/_serif">~serif</a>
+		</div>
+		<script type="text/javascript">
+			var rg = new ReverseGIF();
+			rg.start();
+
+			// next button handler
+			document.getElementById('reload-button').addEventListener('click', function (e) {
+				e.stopPropagation();
+				e.preventDefault();
+				rg.reload();
+			});
+
+			// explanation window buttons
+			document.getElementById('what-is-this').addEventListener('click', function (e) {
+				e.stopPropagation();
+				e.preventDefault();
+				document.getElementById('explanation').className = 'show';
+			});
+			document.getElementById('now-i-know').addEventListener('click', function (e) {
+				e.stopPropagation();
+				e.preventDefault();
+				document.getElementById('explanation').className = '';
+			});
+		</script>
+		<!-- Bodnar Istvan - https://github.com/bodnaristvan/serif.tilde.club -->
 	</body>
 </html>
