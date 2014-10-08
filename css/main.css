@@ -98,3 +98,20 @@ body {
 #explanation.show {
 	display: block;
 }
+
+/** mobile **/
+@media screen and (max-device-width: 768px) {
+	#headline {
+		font-size: 2em;
+		-webkit-text-stroke: 1px #222;
+		text-shadow:
+			1px 1px 0 #666,
+			-1px -1px 0 #666,
+			1px -1px 0 #666,
+			-1px 1px 0 #666,
+			1px 1px 0 #666;
+	}
+	#text {
+		padding: 0em 1em 1em 1em;
+	}
+}

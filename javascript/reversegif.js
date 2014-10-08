@@ -1,4 +1,4 @@
-/*global $, document, window */
+/*global $, document, window, screen */
 var ReverseGIF;
 
 ReverseGIF = function () {
@@ -7,6 +7,8 @@ ReverseGIF = function () {
 	var $headline = document.getElementById('headline'),
 		$text = document.getElementById('text'),
 		$tag = document.getElementById('tag'),
+		deviceWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width,
+		excerptLength = (deviceWidth > 768) ? 500 : 140,
 		interval, privateApi, publicApi;
 
 	privateApi = {
@@ -52,9 +54,11 @@ ReverseGIF = function () {
 
 		// helper method to clean up html from excerpts
 		_cleanupExcerpt: function (html) {
-			var d = document.createElement('div');
+			var d = document.createElement('div'),
+				textVal;
 			d.innerHTML = html;
-			return d.innerText;
+			textVal = d.innerText;
+			return (textVal.length > excerptLength) ? textVal.substring(0, 140) + '...' : textVal;
 		},
 
 		// helper method to get the tag to look for
