@@ -23,14 +23,14 @@ ReverseGIF = function () {
 		},
 		renderImage: function (gifData) {
 			document.body.style.backgroundImage = 'url(' + gifData.image_url + ')';
-			$tag.innerHTML = '#' + gifData.tags[0];
+			$tag.innerHTML = '#' + privateApi._getImageTag(gifData.tags);
 		},
 
 		// get and render the post from kinja
 		getKinja: function (tags) {
 			return $.ajax({
 				type: 'GET',
-				url: 'http://api.kinja.com/api/tag/' + encodeURIComponent(tags[0]),
+				url: 'http://api.kinja.com/api/tag/' + encodeURIComponent(privateApi._getImageTag(tags)),
 				dataType: 'jsonp',
 				jsonp: 'jsonp',
 				data: {
@@ -57,13 +57,24 @@ ReverseGIF = function () {
 			return d.innerText;
 		},
 
+		// helper method to get the tag to look for
+		_getImageTag: function (taglist) {
+			var retval = 'kinja';
+			if (taglist.length > 0) {
+				retval = taglist[0];
+			}
+			return retval;
+		},
+
 		// control the operation!
 		start: function () {
 			privateApi.getGif().done(function (resp) {
 				privateApi.renderImage(resp.data);
 				privateApi.getKinja(resp.data.tags).done(privateApi.renderHeadline);
 			});
-			window.clearInterval(interval);
+			if (interval) {
+				window.clearInterval(interval);
+			}
 			interval = window.setInterval(publicApi.reload, 30000);
 		},
 
