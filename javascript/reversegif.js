@@ -32,7 +32,7 @@ ReverseGIF = function () {
 		getKinja: function (tags) {
 			return $.ajax({
 				type: 'GET',
-				url: 'http://api.kinja.com/api/tag/' + encodeURIComponent(privateApi._getImageTag(tags)),
+				url: 'http://api.kinja.com/api/core/tag/' + encodeURIComponent(privateApi._getImageTag(tags)),
 				dataType: 'jsonp',
 				jsonp: 'jsonp',
 				data: {
